@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
+    private Button mNextButton;
     private TextView mQuestion;
     private boolean answers[] = {true, true, false, true, false};
     private String questions[] = {  "WillowTree has offices in Charlottesville, Durham and New York City",
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mQuestion.setText(questions[counter]);
         mTrueButton = (Button)findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                             R.string.correct_toast,
                             Toast.LENGTH_SHORT).show();
                 }
+                mNextButton.setVisibility(View.VISIBLE);
             }
         });
 
@@ -58,9 +62,28 @@ public class MainActivity extends AppCompatActivity {
                             R.string.correct_toast,
                             Toast.LENGTH_SHORT).show();
                 }
+                mNextButton.setVisibility(View.VISIBLE);
             }
         });
         mFalseButton = (Button)findViewById(R.id.false_button);
+
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                counter++;
+                if (counter < 5) {
+                    mQuestion.setText(questions[counter]);
+                }
+                else{
+                    Toast.makeText(MainActivity.this,
+                            R.string.finished,
+                            Toast.LENGTH_SHORT).show();
+                }
+                mNextButton.setVisibility(View.GONE);
+            }
+        });
+        mNextButton = (Button)findViewById(R.id.next_button);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

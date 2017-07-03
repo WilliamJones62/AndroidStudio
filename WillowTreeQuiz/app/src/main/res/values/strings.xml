@@ -3,6 +3,8 @@
     <string name="action_settings">Settings</string>
     <string name="true_button">True</string>
     <string name="false_button">False</string>
+    <string name="next_button">Next</string>
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
+    <string name="finished">Quiz is finished</string>
 </resources>
