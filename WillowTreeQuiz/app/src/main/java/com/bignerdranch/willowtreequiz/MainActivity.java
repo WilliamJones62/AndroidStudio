@@ -20,10 +20,15 @@ public class MainActivity extends AppCompatActivity {
     private TextView mQuestion;
     private boolean answers[] = {true, true, false, true, false};
     private String questions[] = {  "WillowTree has offices in Charlottesville, Durham and New York City",
-                                    "WillowTree designs and develops mobile and web apps for the world's leading brands",
-                                    "WillowTree is not a place for Makers",
-                                    "At WillowTree we have lots of fun doing work we love",
-                                    "WillowTree is not certified by Apple, Google and Microsoft"};
+            "WillowTree designs and develops mobile and web apps for the world's leading brands",
+            "WillowTree is not a place for Makers",
+            "At WillowTree we have lots of fun doing work we love",
+            "WillowTree is not certified by Apple, Google and Microsoft"};
+    private String errors[] = {  "WillowTree does have offices in Charlottesville, Durham and New York City",
+            "WillowTree does design and develop mobile and web apps for the world's leading brands",
+            "WillowTree is a place for Makers",
+            "At WillowTree we do have lots of fun doing work we love",
+            "WillowTree is certified by Apple, Google and Microsoft"};
     private int counter = 0;
 
     @Override
@@ -38,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (answers[counter] = false) {
                     Toast.makeText(MainActivity.this,
-                            R.string.incorrect_toast,
+                            errors[counter],
                             Toast.LENGTH_SHORT).show();
                 } else{
                     Toast.makeText(MainActivity.this,
@@ -55,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (answers[counter] = true) {
                     Toast.makeText(MainActivity.this,
-                            R.string.incorrect_toast,
+                            errors[counter],
                             Toast.LENGTH_SHORT).show();
                 } else{
                     Toast.makeText(MainActivity.this,
