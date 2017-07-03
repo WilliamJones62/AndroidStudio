@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mQuestion = (TextView)findViewById(R.id.question);
         mQuestion.setText(questions[counter]);
         mTrueButton = (Button)findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mFalseButton = (Button)findViewById(R.id.false_button);
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,8 +72,9 @@ public class MainActivity extends AppCompatActivity {
                 mNextButton.setVisibility(View.VISIBLE);
             }
         });
-        mFalseButton = (Button)findViewById(R.id.false_button);
 
+
+        mNextButton = (Button)findViewById(R.id.next_button);
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,11 +87,13 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,
                             R.string.finished,
                             Toast.LENGTH_SHORT).show();
+                    mTrueButton.setVisibility(View.GONE);
+                    mFalseButton.setVisibility(View.GONE);
+
                 }
                 mNextButton.setVisibility(View.GONE);
             }
         });
-        mNextButton = (Button)findViewById(R.id.next_button);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
